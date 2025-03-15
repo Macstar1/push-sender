@@ -15,16 +15,28 @@ fun main() {
 
     FirebaseApp.initializeApp(options)
 
+//    val message = Message.builder()
+//        .putData("action", "LIKE")
+//        .putData("content", """{
+//          "userId": 1,
+//          "userName": "Vasiliy",
+//          "postId": 2,
+//          "postAuthor": "Netology"
+//        }""".trimIndent())
+//        .setToken(token)
+//        .build()
+
     val message = Message.builder()
-        .putData("action", "LIKE")
+        .putData("action", "NEW_POST")
         .putData("content", """{
           "userId": 1,
           "userName": "Vasiliy",
           "postId": 2,
-          "postAuthor": "Netology"
+          "postContent": "Примените NotificationCompat.BigTextStyle для отображения текста в расширенной области содержимого уведомления"
         }""".trimIndent())
         .setToken(token)
         .build()
+
 
     FirebaseMessaging.getInstance().send(message)
 }
